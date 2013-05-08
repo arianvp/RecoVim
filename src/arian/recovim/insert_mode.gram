@@ -1,0 +1,4 @@
+#JSGF V1.0;
+grammar insert_mode;
+
+public <a> = Hello {java.lang.System.out.println("Hello, world!");};

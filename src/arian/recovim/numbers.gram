@@ -1,0 +1,22 @@
+#JSGF V1.0;
+grammar numbers;
+
+public <number>         = <small_num> {LOL} | <hundreds> | <thousands>;
+
+<small_num>       = <digit> | <ten_to_nineteen> | <tens> | <tens> <digit>;
+
+<hundreds>        = <digit> (Hundred | Hundreds)
+                  | <digit> (Hundred | Hundreds) [and] <small_num>;
+
+<thousands>       = <small_num> (Thousand | Thousands)
+              | <small_num> (Thousand | Thousands) <small_num>
+                  | <hundreds> (Thousand | Thousands) <small_num>
+                  | <small_num> (Thousand | Thousands) <hundreds>
+              | <hundreds> (Thousand | Thousands) <hundreds>;
+
+<digit>           = One | Two | Three | Four | Five | Six | Seven | Eight | Nine;
+
+<tens>            = Twenty | Thirty | Forty | Fifty | Sixty | Seventy | Eighty | Ninety;
+
+<ten_to_nineteen> = Ten | Eleven | Twelve | Thirteen | Fourteen | Fifteen 
+            | Sixteen | Seventeen | Eighteen | Nineteen;

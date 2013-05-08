@@ -1,0 +1,53 @@
+#JSGF V1.0;
+
+grammar normal_mode;
+
+public <normal_mode>
+    = (insert [before line]) {
+       robot.typeKeys("i");
+       grammar.loadJSGF("insert_mode");
+    }
+    | (insert column zero) {
+        robot.typeKeys("g","I");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (after) {
+        robot.typeKeys("a");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (after line) {
+        robot.typeKeys("A");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (open | open below) {
+        robot.typeKeys("o");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (open above) {
+        robot.typeKeys("O");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (substitute) {
+        robot.typeKeys("s");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (substitute line) {
+        robot.typeKeys("S");
+        grammar.loadJSGF("insert_mode");
+    }
+    | (undo) {
+        robot.typeKeys("u");
+    }
+    | (undo line) {
+        robot.typeKeys("U");
+    }
+    | (redo) {
+        robot.typeKeys("ctrl+r");
+    }
+    | (erase) {
+         robot.typeKeys("x");
+    }
+    | (erase ( reverse | back )) {
+         robot.typeKeys("X");
+    };
+    
